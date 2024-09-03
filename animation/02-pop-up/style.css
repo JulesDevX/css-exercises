@@ -1,63 +1,74 @@
 * {
-  padding: 0;
-  margin: 0;
+  padding: 0; /* Supprime le padding par défaut pour tous les éléments */
+  margin: 0;  /* Supprime la marge par défaut pour tous les éléments */
 }
 
 body {
-  overflow: hidden;
+  overflow: hidden; /* Empêche le défilement de la page lorsque le pop-up est visible */
 }
 
 .button-container {
-  width: 100vw;
-  height: 100vh;
-  background-color: #ffffff;
-  opacity: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100vw;  /* Prend toute la largeur de la fenêtre */
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  background-color: #ffffff; /* Fond blanc pour le conteneur du bouton */
+  display: flex; /* Utilise Flexbox pour centrer le bouton */
+  align-items: center; /* Centre verticalement le bouton */
+  justify-content: center; /* Centre horizontalement le bouton */
 }
 
 button {
-  padding: 20px;
-  color: #ffffff;
-  background-color: #0e79dd;
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
+  padding: 20px; /* Ajoute du padding à l'intérieur du bouton */
+  color: #ffffff; /* Couleur du texte blanc */
+  background-color: #0e79dd; /* Couleur de fond du bouton bleu */
+  border: none; /* Supprime les bordures par défaut du bouton */
+  border-radius: 5px; /* Arrondit les coins du bouton */
+  font-weight: 600; /* Rend le texte du bouton gras */
+  cursor: pointer; /* Change le curseur en pointeur lors du survol */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Ajoute une transition douce pour l'opacité et la transformation */
 }
 
 .popup-modal {
-  padding: 32px 64px;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 10px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform-origin: center;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  opacity: 0%;
-  text-align: center;
+  padding: 32px 64px; /* Ajoute du padding à l'intérieur du pop-up */
+  background-color: white; /* Couleur de fond blanche pour le pop-up */
+  border: 1px solid black; /* Ajoute une bordure noire autour du pop-up */
+  border-radius: 10px; /* Arrondit les coins du pop-up */
+  position: fixed; /* Positionne le pop-up de manière fixe par rapport à la fenêtre */
+  top: 0; /* Positionne le pop-up en haut de la fenêtre */
+  left: 50%; /* Centre horizontalement le pop-up */
+  transform: translate(-50%, -100%); /* Déplace le pop-up en dehors de l'écran vers le haut */
+  pointer-events: none; /* Désactive les interactions avec le pop-up lorsqu'il est caché */
+  opacity: 0; /* Rend le pop-up complètement transparent lorsqu'il est caché */
+  text-align: center; /* Centre le texte à l'intérieur du pop-up */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Ajoute une transition douce pour l'opacité et la transformation */
+  z-index: 10; /* Place le pop-up au-dessus du bouton */
 }
 
 .popup-modal p {
-  margin-bottom: 24px;
+  margin-bottom: 24px; /* Ajoute une marge inférieure pour espacer les paragraphes dans le pop-up */
 }
 
 .backdrop {
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  background: #000;
-  opacity: 0%;
+  pointer-events: none; /* Désactive les interactions avec l'arrière-plan lorsqu'il est caché */
+  position: fixed; /* Positionne l'arrière-plan de manière fixe par rapport à la fenêtre */
+  inset: 0; /* Etend l'arrière-plan sur toute la fenêtre (haut, bas, gauche, droite à 0) */
+  background: #000; /* Couleur de fond noire pour l'arrière-plan */
+  opacity: 0; /* Rend l'arrière-plan complètement transparent lorsqu'il est caché */
+  transition: opacity 0.5s ease; /* Ajoute une transition douce pour l'opacité */
+  z-index: 5; /* Place l'arrière-plan sous le pop-up mais au-dessus du bouton */
 }
 
 .popup-modal.show {
-  opacity: 100%;
-  pointer-events: all;
+  opacity: 1; /* Rend le pop-up complètement opaque lorsqu'il est visible */
+  pointer-events: all; /* Active les interactions avec le pop-up lorsqu'il est visible */
+  transform: translate(-50%, 50%); /* Déplace le pop-up au centre de l'écran depuis le haut */
 }
 
 .backdrop.show {
-  opacity: 30%;
+  opacity: 0.3; /* Rend l'arrière-plan légèrement opaque lorsqu'il est visible */
+  pointer-events: all; /* Active les interactions avec l'arrière-plan lorsqu'il est visible */
+}
+
+button.hidden {
+  opacity: 0; /* Rend le bouton complètement transparent lorsqu'il est caché */
+  pointer-events: none; /* Désactive les interactions avec le bouton lorsqu'il est caché */
 }
